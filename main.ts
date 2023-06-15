@@ -10,9 +10,9 @@ function Verificando_Verde () {
 input.onButtonPressed(Button.A, function () {
     SENColor.calibrate()
 })
-input.onButtonPressed(Button.B, function () {
-    hackbitmotors.Servo(hackbitmotors.Servos.S8, 25)
-})
+function Seguir_Linha () {
+	
+}
 led.enable(false)
 SENColor.setPins(
 DigitalPin.P0,
