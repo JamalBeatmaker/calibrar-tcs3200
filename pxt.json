@@ -6,7 +6,8 @@
         "radio": "*",
         "microphone": "*",
         "Solucao-11.0": "github:elderofz1on/solucao-11-0#d0879d6803212bb8677768649736da32757cec78",
-        "pxt-SEN-Color": "github:joy-it/pxt-sen-color#1.0.1"
+        "pxt-SEN-Color": "github:joy-it/pxt-sen-color#1.0.1",
+        "hackbit": "github:hackidsedu/pxt-hackbit#v1.0.12"
     },
     "files": [
         "main.blocks",
