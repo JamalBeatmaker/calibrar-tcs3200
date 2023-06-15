@@ -1,17 +1,21 @@
 function Verificando_Verde () {
     if (SENColor.getColor(color.green) > SENColor.getColor(color.red) && SENColor.getColor(color.green) > SENColor.getColor(color.blue)) {
-    	
-    } else if (false) {
-    	
+        hackbitmotors.MotorRunDelay(hackbitmotors.Motors.M1A, 49, 1)
+        hackbitmotors.MotorRunDelay(hackbitmotors.Motors.M1B, -29, 1)
     } else {
-        hackbitmotors.MotorStop(hackbitmotors.Motors.M1A)
+    	
     }
 }
 input.onButtonPressed(Button.A, function () {
     SENColor.calibrate()
 })
 function Seguir_Linha () {
-	
+    hackbitmotors.MotorRunDual(
+    hackbitmotors.Motors.M1A,
+    70,
+    hackbitmotors.Motors.M1B,
+    70
+    )
 }
 led.enable(false)
 SENColor.setPins(
@@ -26,11 +30,11 @@ basic.forever(function () {
     serial.writeValue("G", SENColor.getColor(color.green))
     serial.writeValue("B", SENColor.getColor(color.blue))
     basic.pause(1000)
+    Seguir_Linha()
     if (hackbitsensor.detectline(DigitalPin.P4, true) && hackbitsensor.detectline(DigitalPin.P10, true)) {
         hackbitmotors.MotorStopAll()
-        basic.pause(100)
-        hackbitmotors.MotorRunDelay(hackbitmotors.Motors.M1A, -30, 1)
-        hackbitmotors.MotorRunDelay(hackbitmotors.Motors.M1B, -30, 1)
-        hackbitmotors.MotorStopAll()
+        Verificando_Verde()
+    } else {
+    	
     }
 })
